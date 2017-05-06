@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     assert = require('assert');
 
-var Leaders = require('./models/leaders');
+var Leaders = require('./models/leadership');
 
 var url = 'mongodb://localhost:27017/conFusion';
 mongoose.connect(url);
@@ -38,7 +38,7 @@ db.once('open', function()  {
           console.log(leader);
 
          
-           db.collection('leaders').drop(function(result) {
+           db.collection('leadership').drop(function(result) {
              db.close();
             });
           });
