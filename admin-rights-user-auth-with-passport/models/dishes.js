@@ -14,9 +14,9 @@ var commentSchema = new Schema({
     type: String,
     required: true
   },
-  author: {
-    type: String,
-    required: true
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User' // contain object id of user which created that comment
   }
 }, {
   timestamps: true
