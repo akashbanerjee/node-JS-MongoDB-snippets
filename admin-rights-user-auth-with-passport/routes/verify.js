@@ -20,7 +20,7 @@ exports.verifyOrdinaryUser = function(req, res, next) {
     //verifies secret key and checks expiry
     jwt.verify(token, config.secretKey, function(err, decoded)  {
       if(err) {
-        var err = new Error('You are not authenticated');
+        var err = new Error('You are not authenticated user');
         err.status = 401;
         return next(err);
       } else {
@@ -48,7 +48,7 @@ exports.verifyAdmin = function(req, res, next)  {
     
     jwt.verify(token, config.secretKey, function(err, decoded)  {
         if(err) {
-          var err = new Error('You are not authenticated');
+          var err = new Error('You are not authenticated admin');
           err.status = 401;
           return next(err);
         } else {
@@ -61,7 +61,7 @@ exports.verifyAdmin = function(req, res, next)  {
 
   }else {
 
-    var err = new Error("No admin rights");
+    var err = new Error("No token provided");
     err.status = 403;
     return next(err);
 
